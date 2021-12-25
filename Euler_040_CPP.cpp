@@ -8,7 +8,7 @@ using namespace std;
 
 int main()
 {
-    vector<int> v;
+    vector<int> v; 
     
     int n = 1000;
     for (int i = 1; i < n; i++)
