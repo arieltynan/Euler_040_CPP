@@ -1,73 +1,33 @@
 // Euler_040_CPP.cpp : This file contains the 'main' function. Program execution begins and ends there.
-//
+// If dn represents the nth digit of the fractional part, find the value of the following expression.
+// d1 × d10 × d100 × d1000 × d10000 × d100000 × d1000000
 
 #include <iostream>
 #include <vector>
+#include <string>
 
 using namespace std;
 
 int main()
 {
-    vector<int> v; 
+    string str;
     
-    int n = 1000;
+    int n = 200000;
     for (int i = 1; i < n; i++)
     {
-        int temp = i;
-
-        /*while (temp != 0)
-        {
-            v.push_back(temp % 10);
-            temp /= 10;
-        }*/
-
-        int rem = 0; //remainder
-        int revTemp = 0; //reversed temp int
-        int countInt = 0;
-        while (temp != 0) {
-            rem = temp % 10;
-            revTemp = revTemp * 10 + rem;
-            temp /= 10;
-            countInt++;
-            //cout << rem << " ";
-        }
-        //cout << endl << endl;
-
-        int rem2 = 0; //remainder
-        int revTemp2 = 0; //reversed temp int
-       if ((i - 1) % 10 == 9)
-       {
-            while (revTemp != 0)          
-            {
-                rem2 = revTemp % 10;
-
-                revTemp2 = revTemp2 * 10 + rem2;
-                revTemp /= 10;
-                cout << rem2 << " ";
-                
-            }
-            for(int k = 0; k < countInt - 1; k++)
-                cout << 0 << " ";
-        }
-       else
-       {
-           while (revTemp != 0)
-           {
-               rem2 = revTemp % 10;
-
-               revTemp2 = revTemp2 * 10 + rem2;
-               revTemp /= 10;
-               cout << rem2 << " ";
-
-           }
-       }
+        string temp = to_string(i);
+        str = str + temp;
     }
-    //print vector v
-   // for (int j = 0; j < v.size(); j++)
-     //   cout << v[j] << " ";
-
+    
+    int ans = 1;
+    int numChar = 0;
+    int arr[7] = {1, 10, 100, 1000, 10000, 100000, 1000000 };
+    for (int j = 0; j < size(arr); j++)
+    {
+        numChar = str[arr[j] - 1] - '0';
+        ans = ans*numChar;
+        cout << str[arr[j] - 1] << endl;
+    }
+    cout << ans << endl;
+    
 }
-
-// for loop n through big number
-    //for each number i, split i into ints
-    //pushback each into into vector
